@@ -10,14 +10,22 @@ public class SearchInRotatedArr {
                return mid;
 
             //identify the sorted half
-            if(a[low]<=a[mid]){
+
+            //left half is sorted
+            if(a[low]<=a[mid]) //this is the right condition dont check if arr[mid]>arr[high] will not be true for all cases
+            {
+                //checking if the element exists in the sorted part
                 if(x>=a[low] && x<=a[mid]){
+                    //if yes we eliminate the other half
                     high=mid-1;
                 }
                 else{
+
                     low=mid+1;
                 }
             }
+
+            //right half is sorted
             else{
                 if(x>a[mid] && x<=a[high]){
                     low=mid+1;
